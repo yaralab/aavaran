@@ -51,6 +51,16 @@ Start attack
 2b httrack
 Httrack <url>
 
+3(a) 
+John the ripper
+unshadow /etc/passwd /etc/shadow > file.txt
+(Create a password file and run it with 'john' command)
+john --single --format=raw-sha1 file.txt
+
+3b
+sudo apt-get install crunch
+crunch 2 3 someword
+crunch 4 6 -p hello world ! (pattern)
 
 
 4(a) Macchanger
@@ -88,18 +98,20 @@ dvwa security change to low
 go to upload n upload shell.php, copy the path from "hackable" and paste after dvwa/
 copy the entire url and enter this in the terminal: weevely "paste url here" 12345
 System_info
+
 5b. Proxychain
 Open browser type dns leak test
 cd /etc
-install tor
-service tor start
-service tor status
+
 ls
 sudo nano proxychains4.conf
 comment strict chain
 uncomment dubamic
 change to 5
 ctrl+o enter ctrl+X
+install tor
+service tor start
+service tor status
 service tor restart
 proxychain4 firefox www.google.com enter open dns leak test
 
